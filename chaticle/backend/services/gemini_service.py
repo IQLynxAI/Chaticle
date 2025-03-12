@@ -32,10 +32,10 @@ class GeminiService:
 
         # ✅ Fix: Ensure response is a valid object before accessing .text
         if hasattr(response, "text"):
-            bot_response = response.text.strip()
+            return response.text
         else:
-            bot_response = response
+            return "Gemani not return any response"
 
-        return bot_response.text if bot_response else "I couldn't generate a response."
+        # return bot_response.text if bot_response else "I couldn't generate a response."
 
 gemini_service = GeminiService()
