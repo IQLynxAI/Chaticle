@@ -1,3 +1,8 @@
+- create .env file in backend folder 
+- create gemini api key and
+- GEMINI_API_KEY=Your gemini api key
+
+
 - git clone the repo
 - pip install -r requirements.txt
 - cd chaticle/backend
