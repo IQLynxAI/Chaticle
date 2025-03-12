@@ -30,12 +30,10 @@ class GeminiService:
         model = genai.GenerativeModel("gemini-2.0-flash")
         response = model.generate_content(prompt)
 
-        # ✅ Fix: Ensure response is a valid object before accessing .text
+        # ✅ Fix: Extract only the text from the response
         if hasattr(response, "text"):
-            bot_response = response.text.strip()
+            return response.text  # Extract plain text response
         else:
-            bot_response = response
-
-        return bot_response.text if bot_response else "I couldn't generate a response."
+            return "⚠️ Error: Unexpected response format from Gemini."
 
 gemini_service = GeminiService()
