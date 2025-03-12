@@ -1,3 +1,4 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     width: 300px;
@@ -6,12 +7,18 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
+    margin: 0;
+    background-color: #ffffff;
 }
 
+/* Header styling */
 h2 {
     text-align: center;
+    margin: 0 0 10px 0;
+    color: #333;
 }
 
+/* Chat container styling */
 #chat-container {
     flex: 1;
     overflow-y: auto;  /* Enables scrolling */
@@ -19,52 +26,115 @@ h2 {
     padding: 10px;
     border-radius: 8px;
     background-color: #f9f9f9;
-    height: 300px;
+    margin-bottom: 10px;
 }
 
+/* Chat box styling */
 #chat-box {
     display: flex;
     flex-direction: column;
 }
 
+/* Message styling */
 .message {
-    padding: 8px;
+    padding: 10px;
     border-radius: 10px;
-    margin: 5px;
+    margin: 5px 0;
     max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.5;
 }
 
+/* User message styling */
 .user {
     align-self: flex-end;
     background-color: #007bff;
     color: white;
 }
 
+/* Bot message styling */
 .bot {
     align-self: flex-start;
     background-color: #e5e5e5;
     color: black;
 }
 
+/* Code container styling */
+.code-container {
+    position: relative;
+    margin: 10px 0;
+}
+
+/* Copy button styling */
+.copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Copied button state */
+.copy-button.copied {
+    background-color: #28a745;  /* Green color for success */
+}
+
+/* Pre and code styling */
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 10px 0;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+code {
+    font-family: Consolas, "Courier New", monospace;
+    color: #d63384;
+    background-color: transparent;
+}
+
+/* Input container styling */
 #input-container {
     display: flex;
     gap: 5px;
+    margin-top: 10px;
 }
 
+/* Input field styling */
 input {
     flex: 1;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 14px;
 }
 
+/* Button styling */
 button {
-    padding: 8px;
+    padding: 8px 12px;
     cursor: pointer;
     border: none;
     background-color: #007bff;
     color: white;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 button:hover {

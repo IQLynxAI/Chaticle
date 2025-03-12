@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AI Article Assistant",
-  "version": "1.0",
+  "version": "3.0",
   "description": "Ask AI questions about the article you're reading.",
   "permissions": ["storage", "activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],

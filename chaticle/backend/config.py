@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # Load environment variables from .env file
+load_dotenv()
 
 # Google Gemini API Key
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")

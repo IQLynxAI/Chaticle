@@ -1,12 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Auto-extract content when extension opens
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.scripting.executeScript(
-            {
-                target: { tabId: tabs[0].id },
-                function: extractAndSendContent
-            }
-        );
+        if (tabs.length > 0) {
+            chrome.scripting.executeScript(
+                {
+                    target: { tabId: tabs[0].id },
+                    function: extractAndSendContent
+                },
+                () => {
+                    // Optional: Handle any errors or post-execution logic
+                    if (chrome.runtime.lastError) {
+                        console.error("Error executing script:", chrome.runtime.lastError);
+                    } else {
+                        console.log("Content extraction script executed successfully.");
+                    }
+                }
+            );
+        } else {
+            console.error("No active tab found.");
+        }
     });
 
     // Handle clicking the "Send" button
@@ -60,7 +72,44 @@ function addMessage(type, text) {
     let chatBox = document.getElementById("chat-box");
     let message = document.createElement("div");
     message.classList.add("message", type);
-    message.innerText = text;
+
+    // Check if the text contains HTML code blocks
+    if (text.includes('<pre><code>')) {
+        // Create a container for the code block and copy button
+        let codeContainer = document.createElement("div");
+        codeContainer.classList.add("code-container");
+
+        // Add the code block
+        codeContainer.innerHTML = text;
+
+        // Add a copy button
+        let copyButton = document.createElement("button");
+        copyButton.innerText = "Copy";
+        copyButton.classList.add("copy-button");
+        copyButton.addEventListener("click", () => {
+            let code = codeContainer.querySelector("code").innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                // Update button text and style
+                copyButton.innerText = "Copied!";
+                copyButton.classList.add("copied");
+                setTimeout(() => {
+                    copyButton.innerText = "Copy";
+                    copyButton.classList.remove("copied");
+                }, 2000);  // Reset button after 2 seconds
+            }).catch(err => {
+                console.error("Failed to copy code:", err);
+            });
+        });
+
+        // Append the copy button to the code container
+        codeContainer.appendChild(copyButton);
+
+        // Append the code container to the message
+        message.appendChild(codeContainer);
+    } else {
+        message.innerText = text;  // Render as plain text
+    }
+
     chatBox.appendChild(message);
 
     // Auto-scroll to the latest message

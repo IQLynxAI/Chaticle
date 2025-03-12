@@ -6,13 +6,11 @@ from services.gemini_service import gemini_service
 
 import logging
 
-# Configure logging for debugging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
-# Enable CORS for Chrome Extension
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -24,10 +22,11 @@ app.add_middleware(
 
 @app.post("/store_content")
 async def store_content(request: ContentRequest):
-    """ Stores the extracted webpage content in the vector database. """
+    """
+    Stores the extracted webpage content in the vector database.
+    """
     logger.info("🔹 Received content to store.")
 
-    # Store content in vector DB
     try:
         vector_db.store_document(request.content)
         logger.info("✅ Content successfully stored in vector database.")
@@ -39,12 +38,13 @@ async def store_content(request: ContentRequest):
 
 @app.post("/ask")
 async def ask_question(request: QuestionRequest):
-    """ Retrieves relevant content from vector DB and generates AI response. """
+    """
+    Retrieves relevant content from vector DB and generates AI response.
+    """
     user_question = request.question
     logger.info(f"🤖 Received Question: {request.question}")
 
     try:
-        # Retrieve relevant content from FAISS
         relevant_content = vector_db.search(user_question, top_k=3)
         response = gemini_service.generate_response(user_question, relevant_content)
 
