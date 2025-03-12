@@ -5,5 +5,8 @@ chaticle/backend/.env
 chaticle/backend/__pychche__
 chaticle/backend/models/__pychche__
 chaticle/backend/services/__pychche__
+<<<<<<< HEAD
 chaticle/backend/vector_store/__pychche__
+=======
+>>>>>>> ef728ab695e75905a4337247c9087b3ee42c183d
 chaticle/backend/vector_store
