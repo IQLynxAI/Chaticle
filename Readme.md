@@ -1,6 +1,6 @@
 - create .env file in backend folder 
 - create gemini api key and
-- GEMINI_API_KEY=Your gemini api key
+- create .env file and set variable GEMINI_API_KEY=your gimini api key here
 
 
 - git clone the repo
