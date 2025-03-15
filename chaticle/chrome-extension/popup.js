@@ -70,6 +70,7 @@ function sendMessage() {
 // Function to add chat messages to UI
 function addMessage(type, text) {
     let chatBox = document.getElementById("chat-box");
+    let chatContainer = document.getElementById("chat-container");
     let message = document.createElement("div");
     message.classList.add("message", type);
 
@@ -112,6 +113,8 @@ function addMessage(type, text) {
 
     chatBox.appendChild(message);
 
-    // Auto-scroll to the latest message
-    chatBox.scrollTop = chatBox.scrollHeight;
+    // Ensure auto-scroll always moves to the latest message
+    requestAnimationFrame(() => {
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    });
 }

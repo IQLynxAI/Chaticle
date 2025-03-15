@@ -8,24 +8,24 @@ body {
     justify-content: space-between;
     padding: 10px;
     margin: 0;
-    background-color: #ffffff;
+    background-color: #FDFFFC;
 }
 
 /* Header styling */
 h2 {
     text-align: center;
     margin: 0 0 10px 0;
-    color: #333;
+    color: #1E2019;
 }
 
 /* Chat container styling */
 #chat-container {
     flex: 1;
     overflow-y: auto;  /* Enables scrolling */
-    border: 1px solid #ccc;
+    border: 1px solid #979797;
     padding: 10px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    border-radius: 10px;
+    background-color: #FAFFD8;
     margin-bottom: 10px;
 }
 
@@ -38,7 +38,7 @@ h2 {
 /* Message styling */
 .message {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 12px;
     margin: 5px 0;
     max-width: 80%;
     word-wrap: break-word;
@@ -48,14 +48,14 @@ h2 {
 /* User message styling */
 .user {
     align-self: flex-end;
-    background-color: #007bff;
+    background-color: #136F63;
     color: white;
 }
 
 /* Bot message styling */
 .bot {
     align-self: flex-start;
-    background-color: #e5e5e5;
+    background-color: #FDFFFC;
     color: black;
 }
 
@@ -71,7 +71,7 @@ h2 {
     top: 5px;
     right: 5px;
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color: #136F63;
     color: white;
     border: none;
     border-radius: 5px;
@@ -81,7 +81,7 @@ h2 {
 }
 
 .copy-button:hover {
-    background-color: #0056b3;
+    background-color: #846A6A;
 }
 
 /* Copied button state */
@@ -122,7 +122,7 @@ input {
     flex: 1;
     padding: 8px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #979797;
     font-size: 14px;
 }
 
@@ -131,12 +131,12 @@ button {
     padding: 8px 12px;
     cursor: pointer;
     border: none;
-    background-color: #007bff;
+    background-color: #136F63;
     color: white;
     border-radius: 5px;
     font-size: 14px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #846A6A;
 }
