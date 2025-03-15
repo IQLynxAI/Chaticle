@@ -12,11 +12,12 @@ body {
 }
 
 /* Header styling */
-h2 {
+p {
     text-align: center;
     margin: 0 0 10px 0;
-    color: #1E2019;
+    color: #313130;
 }
+
 
 /* Chat container styling */
 #chat-container {
