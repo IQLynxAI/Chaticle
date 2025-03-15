@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AI Article Assistant",
+  "name": "Chaticle (Summary and Chat for Articles with AI)",
   "version": "3.0",
   "description": "Ask AI questions about the article you're reading.",
   "permissions": ["storage", "activeTab", "scripting"],
@@ -15,6 +15,11 @@
       "48": "icon.png",
       "128": "icon.png"
     }
+  },
+  "icons": {
+  "16": "icon.png",
+  "48": "icon.png",
+  "128": "icon.png"
   },
   "content_scripts": [
     {

@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function extractAndSendContent() {
     let content = document.body.innerText;
 
-    fetch("http://127.0.0.1:8000/store_content", {
+    fetch("http://127.0.0.1:8080/store_content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: content })
@@ -54,7 +54,7 @@ function sendMessage() {
 
     addMessage("user", question);  // Show user's message in UI
 
-    fetch("http://127.0.0.1:8000/ask", {
+    fetch("http://127.0.0.1:8080/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: question })
@@ -118,3 +118,4 @@ function addMessage(type, text) {
         chatContainer.scrollTop = chatContainer.scrollHeight;
     });
 }
+
